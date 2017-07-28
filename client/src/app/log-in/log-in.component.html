@@ -1,0 +1,37 @@
+<div class="block blur">
+  <div class="container">
+    <div class="row">
+<div cless="span12">
+  <div class="clear-form">
+  <form (ngSubmit)="submitLogin()">
+      <div class="form-heading gray">
+       <h3 class="header center"> Sign In </h3> 
+       <p class="error" *ngIf="errorMessage">
+          {{ errorMessage }}
+          
+       </div>
+  
+  <div class="form-body">
+    <div class="pair-group">
+  <label for="email-input"> Email </label>
+  <input  id="email-input" type="email" placeholder="email@example.com"
+      [(ngModel)]="formEmail" name="formEmail">
+  <br>
+
+<br>
+  <label for="password-input"> Password </label>
+  <input  id="password-input" type="password" placeholder="*****"
+      [(ngModel)]="formPassword" name="formPassword">
+  <br>
+    </div>
+  </div>
+
+<br>
+<div class="form-footer">
+  <button> Log In </button>
+</div>
+</form>
+  </div>
+</div>
+<br>
+<br>

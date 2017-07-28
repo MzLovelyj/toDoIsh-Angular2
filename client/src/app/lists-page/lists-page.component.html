@@ -1,0 +1,33 @@
+<h2> My Lists </h2>
+
+<div>
+  <ul class="list-of-lists">
+    <li class="list-container" *ngFor="let oneList of myLists; let i = index">
+      <h3> {{ oneList.title }} </h3>
+
+      <ul>
+        <li class="card" *ngFor="let oneCard of oneList.cards">
+          <p> {{ oneCard.title }} </p>
+          <div (click)="deleteItem(oneCard)">Delete </div>
+        </li>
+
+        <li>
+          <form (ngSubmit)="makeACard(oneList, i)">
+            <input class="card" type="text" placeholder="Add a card..."
+                [(ngModel)]="newCardTitles[i]" name="newListTitle[]">
+            <br>
+            <button> Save </button>
+          
+          </form>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <form (ngSubmit)="makeAList()">
+    <input type="text" placeholder="Add a list..."
+        [(ngModel)]="newListTitle" name="newListTitle">
+    <br>
+    <button> Save </button>
+  </form>
+</div>
