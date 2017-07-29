@@ -1,16 +1,66 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<header>
-  <h1>Get It Done ToDo App</h1>
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 
-<nav>
-  <button *ngIf="isLoggedIn" (click) ="logMeOut()">
-    Log out
-  </button>
-</nav>
+
+<header>
+
+  <div class="container-fluid">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Todo List App</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-4">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <!--<li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            -->
+            <li><a [routerLink]="['/signup'] ">Sign Up</a></li>
+            <li><a [routerLink]="['/login']" >Log In</a></li>
+            <li class="divider"></li>
+            <button *ngIf="isLoggedIn" (click)="logMeOut()">
+                  Log Out
+                </button>
+          </ul>
+          <ul class="collapse nav navbar-nav nav-collapse" role="search" id="nav-collapse4">
+            <li><a href="#">Support</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class="img-circle" src="https://pbs.twimg.com/profile_images/588909533428322304/Gxuyp46N.jpg" alt="maridlcrmn" width="20" /> Maridlcrmn <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <!--<li><a href="#">My profile</a></li>
+                <li><a href="#">Favorited</a></li>
+                <li><a href="#">Settings</a></li>-->
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+    <!-- /.navbar -->
+  </div>
+  <!-- /.container-fluid -->
 
 </header>
-
 
 <router-outlet></router-outlet>
 
 
+<br>
+<br>
+<br>
+<footer>
+        <p> Made with<span style="font-size:140%;color:#339a7d;">&hearts;</span>by Jessica. </p>
+</footer>

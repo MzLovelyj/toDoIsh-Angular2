@@ -4,3 +4,24 @@ body {
   text-align: center;
 
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.error {
+  color: crimson;
+  border-radius: 3px;
+  border: 2px solid crimson;
+  padding: 10px;
+}
+
+img {
+  width: 475px ;
+  height: 375px;
+  border-radius: 5px;
+  border: 2px solid black;
+  text-align: center;
+}

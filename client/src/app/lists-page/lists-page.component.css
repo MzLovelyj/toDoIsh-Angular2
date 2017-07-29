@@ -1,9 +1,41 @@
+.lists {
+  text-align: center;
+}
+.middle{
+  text-align: center;
+}
+.formInput{
+    display: block;
+     text-align: center;
+      border-radius: 4px;
+      border: 1px;
+      padding: 10px;
+      height: 100%;
+      width:300px;
+      margin:0 auto;
+  }
+  .listInput {
+    display: block;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid black;
+    padding: 10px;
+    height: 100%;
+    width: 299px;
+    margin: 0 auto;
+  }
+
+  placeholder{
+  text-align: cener;
+}
 ul {
   padding-left: 0;
+  text-align: center;
 }
 
 li {
   list-style: none;
+  text-align: center;
 }
 
 div {
@@ -20,15 +52,17 @@ div {
   padding: 10px;
   width: 300px;
   height: 100%;
-  background-color: #eee;
+  background-color: #d2efb4;
 }
 
 .card {
-  margin-bottom: 5px;
+  margin: 5px;
   border-radius: 3px;
   border: 1px solid black;
-  padding: 15px;
-  background-color: white;
+  padding: 20px;
+  background-color: #d2efb4;
+  width: 200px;
+  text-align: center;
 }
 
 form {

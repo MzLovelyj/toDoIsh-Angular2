@@ -7,6 +7,8 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class CardService {
   baseUrl: string = environment.apiUrl;
+  cardId: string;
+  listId: string;
 
   constructor(
     private httpThang: Http
@@ -23,15 +25,22 @@ export class CardService {
         .then(res => res.json())
   }
 
-//  remove(card) {
-//     console.log(card);
-//     return this.httpThang
-//     .post(
-//       `${this.baseUrl}/api/card-delete`, card, 
+    remove(listId, cardId) {
+    return this.httpThang.post(`${this.baseUrl}/api/lists/${listId}/cards/del`,
+      { cardId: cardId},
+      { withCredentials: true }
+      )
+      .toPromise()
+      .then(res => res.json())
+  }
+
+//  remove(listId, cardId) {
+//     return this.httpThang.post(`${this.baseUrl}/api/lists/${listId}/cards/del`,
+//       { cardId: cardId},
 //       { withCredentials: true }
 //       )
 //       .toPromise()
-//       .then(apiResponse => apiResponse.json())
+//       .then(res => res.json())
 //   }
-
 }
+

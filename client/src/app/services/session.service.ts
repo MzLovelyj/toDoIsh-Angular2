@@ -1,14 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router'; //only if you want to redirect somebody
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
 import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/toPromise';
 
 import { environment } from '../../environments/environment';
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Rx';
-
 
 @Injectable()
 export class SessionService {
@@ -73,8 +68,4 @@ export class SessionService {
         .then(res => res.json());
   }
 
-
-  handleError(e) {
-    return Observable.throw(e.json().message);
-  }
 }

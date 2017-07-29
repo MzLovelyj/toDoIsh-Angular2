@@ -1,33 +1,39 @@
-<h2> My Lists </h2>
+ <h2> Your ToDos</h2>
 
+<br>
+<div class="formInput">
+  <p>Add your Title of your ToDo below
+  <form (ngSubmit)="makeAList()">
+    <input class="listInput" type="text" placeholder="Add a list..." [(ngModel)]="newListTitle" name="newListTitle">
+    <br>
+    <button> Save </button>
+  </form>
+</div>
+<br>
+
+<div class="Middle">
 <div>
   <ul class="list-of-lists">
     <li class="list-container" *ngFor="let oneList of myLists; let i = index">
       <h3> {{ oneList.title }} </h3>
+      <br>
 
-      <ul>
+      <ul class="list-of-lists">
         <li class="card" *ngFor="let oneCard of oneList.cards">
           <p> {{ oneCard.title }} </p>
-          <div (click)="deleteItem(oneCard)">Delete </div>
+          <div class="btn btn-normal" (click)="update(oneCard)">Edit</div>
+          <div class="btn btn-danger" (click)="delete(oneList, oneCard)">Del</div>
         </li>
-
+      
         <li>
           <form (ngSubmit)="makeACard(oneList, i)">
-            <input class="card" type="text" placeholder="Add a card..."
-                [(ngModel)]="newCardTitles[i]" name="newListTitle[]">
+            <input class="card" type="text" placeholder="Add a card..." [(ngModel)]="newCardTitles[i]" name="newListTitle[]">
             <br>
             <button> Save </button>
-          
           </form>
         </li>
       </ul>
     </li>
   </ul>
-
-  <form (ngSubmit)="makeAList()">
-    <input type="text" placeholder="Add a list..."
-        [(ngModel)]="newListTitle" name="newListTitle">
-    <br>
-    <button> Save </button>
-  </form>
+</div>
 </div>

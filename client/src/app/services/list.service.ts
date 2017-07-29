@@ -32,5 +32,4 @@ export class ListService {
         .toPromise()
         .then(res => res.json());
   }
-
 }

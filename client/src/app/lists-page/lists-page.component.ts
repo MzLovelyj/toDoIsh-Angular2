@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-// import { RouterLink } from '@angular/router';
+
 import { ListService } from '../services/list.service';
 import { CardService } from '../services/card.service';
 
@@ -9,22 +8,16 @@ import { CardService } from '../services/card.service';
   templateUrl: './lists-page.component.html',
   styleUrls: ['./lists-page.component.css']
 })
-
-
-
 export class ListsPageComponent implements OnInit {
   myLists: any[] = [];
 
   newListTitle: string;
   errorMessage: string;
-  toast: string;
-
   newCardTitles: string[] = [];
 
   constructor(
     private listThang: ListService,
-    private cardThang: CardService,
-
+    private cardThang: CardService
   ) { }
 
   ngOnInit() {
@@ -33,7 +26,7 @@ export class ListsPageComponent implements OnInit {
             this.myLists = listsFromApi;
         })
         .catch((errResponse) => {
-            alert('List error ');
+            alert('List error DID NOT WORK');
         });
   }
 
@@ -44,14 +37,12 @@ export class ListsPageComponent implements OnInit {
             this.newListTitle = '';
         })
         .catch((errResponse) => {
-            alert('List create error');
+            alert('List create DID NOT WORK');
         });
   }
 
   makeACard(theList, titleIndex) {
       const theTitle = this.newCardTitles[titleIndex];
-     
-      
 
       this.cardThang.createCard(theList._id, theTitle)
         .then((newCardFromApi) => {
@@ -59,19 +50,36 @@ export class ListsPageComponent implements OnInit {
             this.newCardTitles[titleIndex] = '';
         })
         .catch((errResponse) => {
-            alert('Card create error');
+            alert('Card create DID NOT WORK');
         });
   }
 
-//     deleteItem(card) {
-//     this.cardThang.remove(card)
-//       .then(() => {})
-//       .catch((err) => {
-//         this.errorMessage = 'Could not retrieve item details. Try again later.';
-//       });
-//     //   console.log(list.cards[1].title);
-//     // console.log(list.cards[1].title + ' was deleted');
-//   }
+  delete(list, card) {
+  this.cardThang.remove(list._id, card._id)
+    .then((res) => {console.log(res)})
+    .catch((err) => {
+      this.errorMessage = 'Could not retrieve item details. Try again later.';
+    });
+
+  console.log(card.title + ' delete request sent');
+  this.listThang.lists()
+    .then((listsFromApi) => {
+        this.myLists = listsFromApi;
+    })
+    .catch((errResponse) => {
+        alert('List error');
+    });
+}
+
+// update() {
+//   this.cardThang.shoppingItems()
+//   .then( fetchedData => {
+//     if (JSON.stringify(this.myItems) != JSON.stringify(fetchedData)) {
+//       this.myItems = fetchedData
+//     }
+//   })
+//   .catch(err => console.log(err));
+// }
 
 
 }

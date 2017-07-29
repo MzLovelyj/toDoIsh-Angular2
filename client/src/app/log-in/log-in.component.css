@@ -1,0 +1,15 @@
+.background{
+  border: 60 60 solid black;
+}
+
+  h2 {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+  }
+
+
+form {
+    color: black;
+}
